@@ -1,18 +1,137 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.quanticheart.intellijplugincleantree</id>
-    <name>intellij-plugin-cleantree</name>
-    <vendor>quanticheart</vendor>
+    <name>Clean Tree</name>
+    <vendor email="dev.quanticheart@gmail.com" url="https://www.quanticheart.com">quanticheart</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>org.jetbrains.android</depends>
+
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.quanticheart.intellijplugincleantree.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.quanticheart.intellijplugincleantree.services.MyProjectService"/>
+        <projectTemplatesFactory implementation="com.intellij.platform.templates.ArchivedTemplatesFactory"/>
+
+        <applicationService
+                serviceImplementation="com.github.quanticheart.intellijplugincleantree.services.MyApplicationService"/>
+        <projectService
+                serviceImplementation="com.github.quanticheart.intellijplugincleantree.services.MyProjectService"/>
+
+        <defaultLiveTemplates file="/liveTemplates/Markdown.xml"/>
+        <liveTemplateContext
+                implementation="com.github.quanticheart.intellijplugincleantree.templates.MarkdownContext"/>
+
+        <localInspection
+                language="kotlin"
+                groupPath="Kotlin"
+                groupBundle="messages.InspectionsBundle"
+                groupKey="group.names.probable.bugs"
+                enabledByDefault="true"
+                implementationClass="com.github.quanticheart.intellijplugincleantree.codespector.DataClassAnnotationInspector"
+                displayName="Add missing data class annotation"
+                shortName="DataClassInspector"
+                runForWholeFile="true"/>
+
+        <editorNotificationProvider
+                implementation="com.github.quanticheart.intellijplugincleantree.codespector.DataClassAnnotationNotification"/>
+
+        <projectConfigurable
+                parentId="editor"
+                displayName="Codespector Settings"
+                nonDefaultProject="true"
+                instance="com.github.quanticheart.intellijplugincleantree.codespector.settings.InspectionSettings"
+                id="com.github.quanticheart.settings.InspectionSettings"/>
+
+        <projectService
+                serviceImplementation="com.github.quanticheart.intellijplugincleantree.codespector.settings.InspectionSettingState"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider
+                implementation="com.github.quanticheart.intellijplugincleantree.wizard.WizardTemplateProviderImpl"/>
     </extensions>
 
     <applicationListeners>
         <listener class="com.github.quanticheart.intellijplugincleantree.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <actions>
+
+        <group id="quanticheart.stackoverflow.Menu"
+               text="Stack Overflow"
+               popup="true"
+               icon="com.github.quanticheart.intellijplugincleantree.MyIcons.stackOverFlow">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.OpenStackAction"
+                    class="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.OpenStackAction"
+                    text="Home">
+            </action>
+
+            <action id="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.AskQuestionAction"
+                    class="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.AskQuestionAction"
+                    text="Ask question"
+                    description="Ask Question on Stack Overflow">
+            </action>
+
+            <action id="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.SearchOnStackOverflowAction"
+                    class="com.github.quanticheart.intellijplugincleantree.actions.stackOverflow.SearchOnStackOverflowAction"
+                    text="Search selected text">
+            </action>
+
+        </group>
+
+        <!-- Add your actions here -->
+        <group id="DTOGenerator.Menu" text="Menu">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <action id="SpringCodeGenerator.DataRepositoryGenerateAction"
+                    class="com.github.quanticheart.intellijplugincleantree.actions.files.test.CreateTest3FileAction"
+                    text="Generate Spring Data Repository"/>
+        </group>
+
+        <group id="MARKDOWN.Menu.quanticheart"
+               text="Markdown"
+               popup="true"
+               icon="AllIcons.Nodes.Plugin">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <action id="com.github.quanticheart.intellijplugincleantree.actions.files.markdown.CreateMarkdownFileAction"
+                    class="com.github.quanticheart.intellijplugincleantree.actions.files.markdown.CreateMarkdownFileAction"
+                    text="File" description="create markdown file"/>
+
+<!--            <action id="com.github.quanticheart.intellijplugincleantree.actions.files.markdown.CreateReadMeFileAction"-->
+<!--                    class="com.github.quanticheart.intellijplugincleantree.actions.files.markdown.CreateReadMeFileAction"-->
+<!--                    text="README" description="create README file"/>-->
+
+            <!--            <action id="com.github.quanticheart.intellijplugincleantree.actions.files.CreateRequirementsFileAction"-->
+            <!--                    class="com.github.quanticheart.intellijplugincleantree.actions.files.CreateRequirementsFileAction"-->
+            <!--                    text="ViewModel 2" description="create README file"/>-->
+        </group>
+
+        <action id="com.github.quanticheart.intellijplugincleantree.actions.files.kotlin.CreateViewModelFileAction"
+                class="com.github.quanticheart.intellijplugincleantree.actions.files.kotlin.CreateViewModelFileAction"
+                text="ViewModel">
+            <add-to-group group-id="NewGroup"/>
+            <keyboard-shortcut
+                    keymap="$default"
+                    first-keystroke="control alt G"
+                    second-keystroke="C"/>
+
+            <!-- ...except the "Mac OS X" keymap and its children. -->
+            <keyboard-shortcut
+                    keymap="Mac OS X"
+                    first-keystroke="control alt G"
+                    second-keystroke="C"
+                    remove="true"/>
+
+            <!-- The "Mac OS X 10.5+" keymap and its children will have only this
+   keyboard shortcut for this action. -->
+            <!--            <keyboard-shortcut-->
+            <!--                    keymap="Mac OS X 10.5+"-->
+            <!--                    first-keystroke="control alt G"-->
+            <!--                    second-keystroke="C"-->
+            <!--                    replace-all="true"/>-->
+        </action>
+    </actions>
 </idea-plugin>

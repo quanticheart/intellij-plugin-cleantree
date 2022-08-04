@@ -1,1 +1,1 @@
-rootProject.name = "intellij-plugin-cleantree"
+rootProject.name = "Clean Arch"

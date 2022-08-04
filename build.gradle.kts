@@ -16,12 +16,19 @@ plugins {
     id("org.jetbrains.qodana") version "0.1.13"
 }
 
+val androidStudioPath: String by project
+val androidStudioPathMacOS: String by project
+
 group = properties("pluginGroup")
 version = properties("pluginVersion")
 
 // Configure project's dependencies
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    compileOnly(files("lib/wizard-template.jar"))
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
