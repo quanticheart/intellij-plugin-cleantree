@@ -13,7 +13,7 @@ class CreateMarkdownFileAction : CreateFileFromTemplateAction("Markdown", "Creat
     override fun buildDialog(project: Project, directory: PsiDirectory, builder: CreateFileFromTemplateDialog.Builder) {
         builder
             .setTitle("Markdown")
-            .addKind("Markdown", PlatformIcons.CLASS_ICON, "ReadME")
+            .addKind("Markdown", PlatformIcons.CLASS_ICON, "Markdown")
             .setValidator(object : InputValidatorEx {
                 override fun checkInput(inputString: String?): Boolean {
                     return getErrorText(inputString) == null

@@ -1,4 +1,4 @@
-package com.github.quanticheart.intellijplugincleantree.wizard.cleanArch
+package com.github.quanticheart.intellijplugincleantree.wizard.cleanArch.recipes.clean
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor

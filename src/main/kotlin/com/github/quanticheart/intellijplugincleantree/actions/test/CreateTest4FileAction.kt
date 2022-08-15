@@ -1,4 +1,4 @@
-package com.github.quanticheart.intellijplugincleantree.actions.files.test
+package com.github.quanticheart.intellijplugincleantree.actions.test
 
 import com.intellij.ide.fileTemplates.FileTemplate
 import com.intellij.ide.fileTemplates.FileTemplateManager

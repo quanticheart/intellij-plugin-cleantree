@@ -1,4 +1,4 @@
-package com.github.quanticheart.intellijplugincleantree.actions.files.test
+package com.github.quanticheart.intellijplugincleantree.actions.test
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

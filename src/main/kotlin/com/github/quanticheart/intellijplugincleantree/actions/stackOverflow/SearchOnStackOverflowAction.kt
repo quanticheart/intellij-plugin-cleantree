@@ -20,7 +20,7 @@ class SearchOnStackOverflowAction(
     override fun actionPerformed(event: AnActionEvent) {
         val langTag: String = with(event.getData(CommonDataKeys.PSI_FILE)) {
             this?.run {
-                "+[${language.displayName.toLowerCase()}+]"
+                "+[${language.displayName.toLowerCase()}]"
             }
         } ?: ""
 
@@ -43,14 +43,5 @@ class SearchOnStackOverflowAction(
             }
         }
         myHandler.invoke(selectedText, langTag)
-
-//        val notification = NotificationGroupManager("AndroidVille", NotificationDisplayType.BALLOON, true)
-//        notification
-//            .createNotification(
-//                "Hello from first plugin",
-//                "Welcome to AndroidVille's intellij plugin development tutorial",
-//                NotificationType.INFORMATION,
-//                null
-//            ).notify(event.project)
     }
 }

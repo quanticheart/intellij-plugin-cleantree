@@ -1,18 +1,18 @@
-package com.github.quanticheart.intellijplugincleantree.wizard.cleanArch
+package com.github.quanticheart.intellijplugincleantree.wizard.cleanArch.recipes.fragment
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.MIN_API
 import com.github.quanticheart.intellijplugincleantree.wizard.createLayoutName
 
-val cleanArchTemplateV1
+val activityForFragmentTemplateV1
     get() = template {
 
-        name = "Clean Arch"
-        description = "Create clean feature"
+        name = "Activity + Fragment + ViewModel"
+        description = "Simple activity + fragment + view model"
         minApi = MIN_API
         minApi = MIN_API
 
-        category = Category.Other
+        category = Category.Activity
         formFactor = FormFactor.Mobile
         screens = listOf(
             WizardUiContext.ActivityGallery,
@@ -22,16 +22,16 @@ val cleanArchTemplateV1
         )
 
         val featureName = stringParameter {
-            name = "Feature name"
+            name = "Activity name"
             default = "Main"
             constraints = listOf(Constraint.NONEMPTY)
         }
 
         val layoutName = stringParameter {
             name = "Layout Name"
-            default = "activity_main"
+            default = "fragment_main"
             constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
-            suggest = { activityToLayout(createLayoutName(featureName.value)) }
+            suggest = { fragmentToLayout(createLayoutName(featureName.value)) }
         }
 
         val packageName = stringParameter {
@@ -50,7 +50,7 @@ val cleanArchTemplateV1
 //        thumb { File("logo.png") }
 
         recipe = { data: TemplateData ->
-            cleanArchRecipe(
+            activityAndVMRecipe(
                 data as ModuleTemplateData,
                 featureName.value,
                 layoutName.value,

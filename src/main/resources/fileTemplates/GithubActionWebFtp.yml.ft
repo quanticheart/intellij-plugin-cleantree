@@ -1,0 +1,38 @@
+on:
+  push:
+    branch:
+      - ${NAME}
+name: FTP Deploy
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
+
+      - name: Sync files with server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          port: ${{ secrets.ftp_port }}
+          exclude: |
+              **/.git*
+              **/.git*/**
+              **/node_modules/**
+              **/.github/**
+              **/tests/**
+              **/database/**
+              .DS_Store
+              .env
+              .env.example
+              .gitattributes
+              .gitignore
+              .styleci.yml
+              package.json
+              package-lock.json
+              phpunit.xml
+              README.md
+              .editorconfig

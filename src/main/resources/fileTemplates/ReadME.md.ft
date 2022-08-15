@@ -1,2 +1,165 @@
-# ${NAME}
+# Welcome to ${NAME}
+
+🤖
+
+***Lorem Ipsum*** is simply dummy **text of the printing** and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+
+#Medals
+
+<p align="center">
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
+
+# Paragraph
+
+- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
+
+- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
+
+  > To start syncing your workspace, just sign in with Google in the menu.
+
+  > Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+
+## Table
+
+|                |ASCII                          |HTML                         |
+|----------------|-------------------------------|-----------------------------|
+|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
+|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
+|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+
+or
+
+| Features          | Tutorials               |
+| ----------------- |:----------------------- |
+| GitHub Sync       | [:link:][GitHub-Sync]   |
+| Browser Extension | [:link:][HackMD-it]     |
+| Book Mode         | [:link:][Book-mode]     |
+| Slide Mode        | [:link:][Slide-mode]    |
+| Share & Publish   | [:link:][Share-Publish] |
+
+[GitHub-Sync]: https://hackmd.io/c/tutorials/%2Fs%2Flink-with-github
+[HackMD-it]: https://hackmd.io/c/tutorials/%2Fs%2Fhackmd-it
+[Book-mode]: https://hackmd.io/c/tutorials/%2Fs%2Fhow-to-create-book
+[Slide-mode]: https://hackmd.io/c/tutorials/%2Fs%2Fhow-to-create-slide-deck
+[Share-Publish]: https://hackmd.io/c/tutorials/%2Fs%2Fhow-to-publish-note
+
+
+## Links
+
+[Github](https://github.com)
+
+[Link file in repo](.well-known/assetlinks.json)
+
+
+## UML diagrams
+
+You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
+
+```mermaid
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->Alice: Checking with John...
+Alice->John: Yes... John, how are you?
+```
+
+And this will produce a flow chart:
+
+```mermaid
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B --> D{Rhombus}
+C --> D
+```
+
+# Code block
+```
+ <div>
+     test
+ </div>
+```
+or
+```sh
+adb shell am start -a android.intent.action.VIEW \
+    -c android.intent.category.BROWSABLE \
+    -d "http://domain.name:optional_port"
+```
+
+or
+
+- Code block with color and line numbers：
+```javascript=16
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+
+# tags
+
+`Tag(change me!)`
+
+# Check Box
+
+- [x] Create my first HackMD note (this one!)
+- [ ] Change its title
+- [ ] Add a tag
+
+or
+
+- [x] **Bold**
+- [ ] *Italic*
+- [ ] Super^script^
+- [ ] Sub~script~
+- [ ] ~~Crossed~~
+- [x] ==Highlight==
+
+# HTML
+
+Click on the <i class="fa fa-share-alt"></i> **Sharing**
+
+or
+
+<div style="margin-left: auto;
+            margin-right: auto;
+            width: 30%">
+
+![image info](https://www.herokucdn.com/images/logos/heroku-logotype-vertical-white.svg)
+
+</div>
+
+or
+
+<p align="center"><a href="https://www.heroku.com" target="_blank"><img src="https://www.herokucdn.com/images/logos/heroku-logotype-vertical-white.svg" width="100"></a></p>
+
+or
+
+<p align="center">
+<a href="https://github.com/AkhileshNS/heroku-deploy">AkhileshNS: heroku-deploy</a>
+-
+<a href="https://dev.to/kavishsanghvi/deploying-web-application-on-cicd-pipeline-using-heroku-and-github-actions-714">dev.to: Github Actions</a>
+</p>
+
+# Image
+
+![](https://i.imgur.com/Cnle9f9.png)
+
+or
+
+![permalink setting demo](https://i.imgur.com/PjUhQBB.gif)
+
+or
+
+![image info](https://www.herokucdn.com/images/logos/heroku-logotype-vertical-white.svg)
 
