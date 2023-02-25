@@ -13,7 +13,7 @@ fun RecipeExecutor.mapperGenericRecipe(
 
     val (_, srcOut, _) = moduleData
 
-    val fileName = "${classInputName}To${classOutputName}"
+    val fileName = "Mapper"
 
     /**
      * Domain
