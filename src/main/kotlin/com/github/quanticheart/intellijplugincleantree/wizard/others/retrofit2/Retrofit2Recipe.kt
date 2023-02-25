@@ -11,11 +11,13 @@ fun RecipeExecutor.retrofit2Recipe(
     packageName: String
 ) {
 
-    val (_, srcOut, _) = moduleData
+    val (projectData, srcOut, _) = moduleData
 
+    val applicationPackage = projectData.applicationPackage
     val fileName = "ConnectionBase"
 
     val repository = retrofitTemplate(
+        applicationPackage= applicationPackage,
         featurePackage = packageName,
         featureName = fileName
     )

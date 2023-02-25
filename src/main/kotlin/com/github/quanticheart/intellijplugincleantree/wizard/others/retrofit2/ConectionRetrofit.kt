@@ -1,6 +1,7 @@
 package com.github.quanticheart.intellijplugincleantree.wizard.others.retrofit2
 
 fun retrofitTemplate(
+    applicationPackage: String?,
     featurePackage: String,
     featureName: String
 ) = """
@@ -10,7 +11,7 @@ import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.quanticheart.repository.BuildConfig
+import ${applicationPackage}.BuildConfig
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
